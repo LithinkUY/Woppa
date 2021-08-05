@@ -1,0 +1,42 @@
+<ion-content>
+    <section class="login">
+        <div class="wrap desktop-only">            
+            <img class="login__image" src="{{ login__image }}">
+        </div>
+        <div class="wrap">
+            <div class="login__content">
+                <img class="login__logo" src="{{ AppLogoApp }}">                
+                <!-- <h2 class="login__title">Bom te ver novamente!</h2>
+                <p class="login__caption">Preencha os campos para conectar-se.</p> -->
+                <form #form="ngForm" (ngSubmit)="AuthLogin(form)" method="post">
+                    <div>
+                        <ion-label position="floating">Email</ion-label>
+                        <ion-input type="email" [(ngModel)]="model.Email" clearInput placeholder="Digite o email"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="Email" #txtEmail required>
+                            <ion-icon style="zoom:1.5;" class="icon" name="mail"></ion-icon>
+                        </ion-input>
+                    </div>
+                    <div>
+                        <ion-label position="floating">Senha</ion-label>
+                        <ion-input #Senha [(ngModel)]="model.Senha" name="Senha" clearInput type="{{password_type}}"
+                            placeholder="Digite a senha" required>
+                            <ion-icon style="zoom:1.5;" slot="end" #SenhaIcon name="{{password_icon}}"
+                                (click)="togglePasswordMode()">
+                            </ion-icon>
+                        </ion-input>
+                    </div>
+                    <div class="login__hr"></div>
+                    <button class="login__button" [disabled]="!form.valid  || !isLogin" type="submit">Continuar</button>
+                    <!-- <div class="button_pwa">
+                        <ion-button ion-button full (click)="add_to_home()" *ngIf="showBtn" >Instalar no celular</ion-button>
+                    </div> -->
+                </form>
+                <a class="login__access" [routerLink]="['/signup']" >Registrar-se</a>
+            </div>
+        </div>
+        <div class="login__detail"></div>
+        
+    </section>
+</ion-content>
+
+

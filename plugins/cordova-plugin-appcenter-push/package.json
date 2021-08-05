@@ -1,0 +1,60 @@
+{
+  "_from": "cordova-plugin-appcenter-push",
+  "_id": "cordova-plugin-appcenter-push@0.5.1",
+  "_inBundle": false,
+  "_integrity": "sha512-sYGgbSxrp9Qp04a3YcNIDSE0QWs+RaPvhvLgpw/HiAOszUZW5AzQvyquwu/tuREZMVVUyyx49T47m+7d7p/Uzg==",
+  "_location": "/cordova-plugin-appcenter-push",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-appcenter-push",
+    "name": "cordova-plugin-appcenter-push",
+    "escapedName": "cordova-plugin-appcenter-push",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-appcenter-push/-/cordova-plugin-appcenter-push-0.5.1.tgz",
+  "_shasum": "05662ed5565b00297b235c7813e95d53b01f421c",
+  "_spec": "cordova-plugin-appcenter-push",
+  "_where": "/Users/Gilson/Desktop/Projetos2020/WEARPLACE/Projetos/INTERCHIP",
+  "author": {
+    "name": "Microsoft Corporation"
+  },
+  "bugs": {
+    "url": "https://github.com/Microsoft/appcenter-sdk-cordova/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "appcenter-crashes",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Provides Microsoft Azure App Center Push client for Cordova",
+  "homepage": "https://github.com/Microsoft/appcenter-sdk-cordova/blob/master/README.md",
+  "keywords": [
+    "microsoft",
+    "azure",
+    "app center",
+    "push",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-appcenter-push",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Microsoft/appcenter-sdk-cordova.git"
+  },
+  "types": "./types/index.d.ts",
+  "version": "0.5.1"
+}

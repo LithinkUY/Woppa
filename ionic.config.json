@@ -1,0 +1,8 @@
+{
+  "name": "WOPPA",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

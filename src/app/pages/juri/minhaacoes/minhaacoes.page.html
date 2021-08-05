@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button slot="start">
+        <ion-icon slot="icon-only" src="./../../../../assets/app/svg/balance-scale.svg" name="help"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Minhas Ações Judiciais</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content fullscreen class="ion-padding" scroll-y="false">
+
+  <ion-slides #slides>
+
+    <ion-slide class="swiper-no-swiping">
+      <div>
+        <img name='question' src="./../../../../assets/app/svg/balance-scale.svg" />
+
+        <h2>Olá, tudo bem? <p><b>Para obter as informações sobre suas ações judiciais,</b></h2>
+        <b>acessar o portal via aplicativo clicando no botão (link) abaixo.</b>
+
+
+      </div>
+       <br>
+      <ion-button (click)="portalJudicial($event, 'https://sinal2.websiteseguro.com/juridico/filiado_acoes.asp');" fill="clear">Minhas Ações <ion-icon slot="end" name="link">
+        </ion-icon>
+      </ion-button>
+
+
+    </ion-slide>
+
+  </ion-slides>
+
+</ion-content>

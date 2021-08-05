@@ -1,0 +1,105 @@
+<!-- <ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
+
+    <ion-title>{{ title }}</ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+ -->
+
+
+ <ion-content >
+
+  <vg-player (onPlayerReady)="onPlayerReady($event)" >
+
+    <vg-overlay-play></vg-overlay-play>
+    <vg-buffering></vg-buffering>
+
+    <vg-scrub-bar>
+      <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+      <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+    </vg-scrub-bar>
+  
+    <vg-controls>
+
+      <ion-button  (click)="onCloseFullscreen($event)">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </ion-button>
+
+      <vg-play-pause></vg-play-pause>
+      
+     
+      <vg-playback-button></vg-playback-button>   
+      
+      <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>        
+      <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+      <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+      
+      <vg-track-selector></vg-track-selector>
+      <vg-mute></vg-mute>
+
+      <!-- <vg-volume></vg-volume>   -->  
+
+      <vg-fullscreen></vg-fullscreen>      
+
+    
+     
+    </vg-controls>
+
+
+    <video name="video" 
+      class="videogular-container"
+      [vgMedia]="media" 
+      #media 
+      id="singleVideo" 
+      preload="auto" 
+      crossorigin
+      poster="{{ poster }}">
+        
+
+      <source src="{{ paramVideoSrc.VideoMp4 }}"  type="video/mp4">
+      <source src="{{ paramVideoSrc.VideoOgg }}"  type="video/ogg">
+      <source src="{{ paramVideoSrc.VideoWebm }}" type="video/webm">
+
+      <track kind="subtitles" label="Português" 
+        src="{{paramVideoSrc.LegendaPTBRVtt}}"
+        #metadataTrack
+        vgCuePoints
+        (onEnterCuePoint)="onEnterCuePoint($event)"
+        (onExitCuePoint)="onExitCuePoint($event)"
+        srclang="pt-br" default
+      > 
+
+      <track kind="subtitles" label="English" 
+          src="{{paramVideoSrc.LegendaUSVtt}}"
+          #metadataTrack
+          vgCuePoints
+          (onEnterCuePoint)="onEnterCuePoint($event)"
+          (onExitCuePoint)="onExitCuePoint($event)"
+          srclang="en" 
+      >       
+      <track 
+        kind="subtitles" 
+        label="Español" 
+        src="{{paramVideoSrc.LegendaESVtt}}"
+        srclang="es"
+      >      
+    </video>
+
+    <div class="my-logo-layer" ng-show="api.currentState != 'play'">
+      <img src="{{paramVideoSrc.Thumbnail}}">
+    </div>
+
+  </vg-player>
+
+</ion-content>  
+
+

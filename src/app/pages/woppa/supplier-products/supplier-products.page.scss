@@ -1,0 +1,442 @@
+/* --------------- */
+/* Tipografia      */
+/* --------------- */
+
+// @font-face {
+//   font-family: Atma;
+//   src: url(../font/Atma-Regular.ttf);
+// }
+
+// @font-face {
+//   font-family: Glacial;
+//   src: url(../font/GlacialIndifference-Regular.otf);
+// }
+
+/* --------------- */
+/* Estrutura       */
+/* --------------- */
+
+.body {
+    margin: 0;
+    padding: 0;
+    background: rgb(238, 238, 238);
+    background: linear-gradient(0deg, rgba(238, 238, 238, 1) 0%,
+        rgba(255, 255, 255, 1) 100%, rgba(255, 255, 255, 1) 100%);
+    font-family: sans-serif;
+  }
+  
+  .content {
+    display: block;
+  }
+  
+  .wrap {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .wrap:first-child {
+    padding-top: 0;
+  }
+  
+  /* --------------- */
+  /* Carrousel         */
+  /* --------------- */
+  
+  .woppa__heading {
+    font-size: 1.8em;
+    color: #5a5a5a;
+    font-weight: bold;
+    margin-top: 0;
+  }
+  
+  .woppa__heading,
+  .woppa__title {
+    text-align: left;
+  }
+  
+  .woppa__destaque {
+    position: absolute;
+    text-transform: uppercase;
+    text-align: center;
+    top: 50%;
+    right: 50%;
+    bottom: 50%;
+    transform: translate(50%, 50%);
+    background-color: transparent;
+    color: white;
+    font-family: Glacial, sans-serif;
+    z-index: 2;
+  }
+  
+  .woppa__slider,
+  .woppa__categories {
+    padding: 20px 0px;
+  }
+  
+  .woppa__item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-right: 40px;
+    box-shadow: 3px 2px 10px 0px rgba(0, 0, 0, 0.5);
+    text-align: left;
+    font-family: Atma, sans-serif;
+    cursor: pointer;
+  }
+  
+  
+  .woppa__item.destaque {
+    width: 100%;
+    margin-right: 0;
+  }
+  
+  .woppa__item .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(255, 255, 255, 0) 50%);
+    z-index: 1;
+  }
+  
+  .woppa__content {
+    position: relative;
+  }
+  
+  .woppa__image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    width: 100%;
+    transform: scale(1.2);
+  }
+  
+  .woppa__image.listagem {
+    transform: initial;
+  }
+  
+  .woppa__title {
+    display: inline-block;
+    margin: 0;
+    padding: 10px;
+    font-size: 1em;
+    line-height: 0px;
+    color: #222;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+    width: 100%;
+    z-index: 2;
+  }
+  
+  .woppa__title.white {
+    background-color: transparent;
+    color: white;
+  }
+  
+  .woppa__title.large {
+    font-size: 1em;
+    line-height: initial;
+  }
+  
+  /* --------------- */
+  /* MENU INFERIOR   */
+  /* --------------- */
+  
+  .woppa__nav {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    box-shadow: 0px -2px 17px rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+    z-index: 3;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .woppa__nav-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 0;
+  }
+  
+  .woppa__nav-item {
+    font-family: Atma, sans-serif;
+    font-weight: bold;
+    color: #6d6d6d;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .woppa__nav-item p {
+    margin: 0;
+  }
+  
+  /* --------------- */
+  /* ICONES          */
+  /* --------------- */
+  
+  .woppa__icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  /* 
+  .woppa__icon.lock {    
+    background-image: url(../../../assets/app/svg/lock.svg);
+  
+  }
+  
+  .woppa__icon.food {
+    background-image: url(../../../assets/app/svg/help.svg);
+  }
+  
+  .woppa__icon.food-white {
+    background-image: url(../../../assets/app/svg/help-white.svg);
+  }
+  
+  .woppa__icon.home {
+    background-image: url(../../../assets/app/svg/home.svg);
+    margin: 0 0 5px 0;
+  }
+  
+  .woppa__icon.profile {
+    background-image: url(../../../assets/app/svg/users.svg);
+    margin: 0 0 5px 0;
+  }
+  
+  .woppa__icon.alert {
+    background-image: url(../../../../assets/app/svg/bell.svg);
+    margin: 0 0 5px 0;
+  }
+  
+  .woppa__icon.saved {
+    background-image: url(../../../assets/app/svg/favoriteborder_baseline.svg);
+    margin: 0 0 5px 0;
+  }
+  
+  .woppa__icon.help {
+    background-image: url(../../../assets/app/svg/help-circle.svg);
+    margin: 0 0 5px 0;
+  }
+   */
+  /* --------------- */
+  /* Listagem          */
+  /* --------------- */
+  
+  .woppa__listagem {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  @media(min-width: 400px) {
+    .woppa__listagem {
+      grid-template-columns: auto auto;
+    }
+  }
+  
+  @media(min-width: 700px) {
+    .woppa__listagem {
+      grid-template-columns: auto auto auto;
+    }
+  }
+  
+  @media(min-width: 1000px) {
+    .woppa__listagem {
+      grid-template-columns: auto auto auto auto;
+    }
+  }
+  
+  .woppa__listagem-item {
+    display: block;
+    margin: 0;
+    text-align: left;
+    padding: 10px;
+    box-shadow: 12px 14px 6px rgba(0, 0, 0, 0.2);
+    background-color: white;
+  }
+  
+  .woppa__listagem-title,
+  .woppa__listagem-caption {
+    font-family: Arial, Helvetica, sans-serif;
+  
+  }
+  
+  .woppa__listagem-title {
+    font-weight: bold;
+    margin: 10px 0;
+    color: #414141;
+  }
+  
+  .woppa__listagem-caption {
+    margin: 0;
+    font-size: 14px;
+    color: #222;
+  }
+  
+  .woppa__listagem-link {
+    text-decoration: none;
+  }
+  
+  /* --------------- */
+  /* BUTTON          */
+  /* --------------- */
+  
+  
+  .woppa__button {
+    display: inline-block;
+    text-align: center;
+    width: 300px;
+    padding: 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    vertical-align: middle;
+    font-family: Glacial, sans-serif;
+    margin-top: 40px;
+    transition: .5s ease;
+  }
+  
+  .woppa__button.default:last-of-type {
+    margin-bottom: 100px;
+  }
+  
+  .woppa__button.default {
+    background-color: transparent;
+    border: 2px solid #126ea8;
+    color: #126ea8;
+  }
+  
+  .woppa__button.default:hover {
+    background-color: #126ea8;
+    color: white;
+  }
+  
+  
+  .woppa__button.unlock {
+    color: #585252;
+    font-weight: bold;
+    background: #FFF453;
+  }
+  
+  .woopa__button-listagem {
+    padding: 10px;
+    font-family: sans-serif;
+    background-color: #00BCD4;
+    color: white;
+    margin-top: 10px;
+    width: 100%;
+  }
+  
+  
+  /* Style the tab */
+  .tab {
+    overflow: hidden;
+  }
+  
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  }
+  
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  .tab button.active {
+    background-color: #ccc;
+  }
+  
+  .tab__content {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+  }
+  
+  .tab__image {
+    max-width: 100px;
+    margin-right: 20px;
+  }
+  
+  @media(min-width: 400px) {
+    .tab__image {
+      display: block;
+    }
+  }
+  
+  .tab__list {
+    padding: 0;
+  }
+  
+  .tab__item {
+    list-style: none;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 9px 11px 14px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+  }
+  
+  .tab__link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    text-decoration: none;
+  }
+  
+  .tab__title {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .tab__caption {
+    font-size: 1em;
+  }
+  
+  .tab__title,
+  .tab__caption {
+    margin: 0;
+    color: #222;
+  }
+  
+  .tab__container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .tab__button {
+    background-image: url(../../../../assets/app/icon/next.png);
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    background-position: center center;
+    background-color: transparent;
+    background-size: cover;
+    outline: none;
+    font-size: 1em;
+    color: #777;
+  }
+  
+  .delivery__toolbar {
+    color: #555;
+  }

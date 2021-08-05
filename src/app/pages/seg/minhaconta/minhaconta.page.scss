@@ -1,0 +1,19 @@
+ion-avatar {
+    display:flex;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+  }
+
+
+  .cameraButton {
+    border: 0px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+
+  .inputUpload {
+    display:none ;
+  }
+  

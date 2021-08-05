@@ -1,0 +1,50 @@
+<ion-header>
+
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon slot="icon-only" name="help"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>{{AppName}} </ion-title>
+  </ion-toolbar>
+
+</ion-header>
+<ion-content class="ion-fullscreen  ion-padding">
+  <ion-searchbar placeholder="Pesquisar" (ionInput)="getItems($event)"></ion-searchbar>
+  <!--
+  <ion-grid>
+    <ion-row class="ion-justify-content-center align-items-center">
+      <ion-col class="ion-padding" size="4" size-sm *ngFor="let item of items" class="col" (click)="itemSelected(item)">
+        <div>
+          <img src="{{item.Icon}}">
+          <ion-label class="label" > 
+            {{item.Name}}
+          </ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  -->
+
+  <ion-list>
+    <ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+      <!-- <ion-avatar slot="start" background="primary">
+        <img src="{{item.Icon}}">
+      </ion-avatar> -->
+      <ion-icon slot="start" name="{{item.Icon}}" src="{{item.Icon}}" class="menuapp-primary"></ion-icon>
+      <ion-label class="ion-text-wrap">
+        <strong>{{item.Name}}</strong><br>
+        {{item.Details}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

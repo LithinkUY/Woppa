@@ -1,0 +1,54 @@
+$primary-color: #2d8db0;
+$secondary-color: #ebba1cd5;
+$tertiary-first: #000000;
+$tertiary-second: #b0e59b;
+$tertiary-third:#0394c9  ;
+
+$background-color:rgb(255, 255, 255);
+$bg-image: url('/assets/app/wallpaperblank.jpg');
+$lg-image: url('/assets/app/logo/lgConstruAgil.png');
+
+
+ion-avatar {
+    margin-top: 1px;
+    display:flex;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+}
+
+.cameraButton {
+  border: 0px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.inputUpload {
+  display:none ;
+}
+
+.bgID{    
+    background-color: $background-color;
+    background-image: $lg-image;
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-size: 50%;
+    background-position: center;
+    margin: 5px 5px 5px 5px;
+    width: 100%;                
+    height:31%;
+}
+
+.lbName {
+  font-size: 24px;  
+  font-weight: bold;
+}
+  
+.lbDados {
+  font-size: 14px;  
+  font-weight: bold;
+  
+}
+
+  

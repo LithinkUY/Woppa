@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button slot="start">
+        <ion-icon slot="icon-only" src="./../../../../assets/app/svg/form-question.svg" name="help"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Você me ajuda, eu te ajudo!</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content fullscreen class="ion-padding" scroll-y="false">
+
+  <!-- 
+    class="swiper-no-swiping" 
+    (ionSlideDidChange)="slideDidChange()"
+    (ionSlideDidChange)="slideDidChange($event)"    
+  -->
+  <form #form="ngForm" (ngSubmit)="move($event);" method="post" name="formUser">
+    <ion-slides class="swiper-no-swiping" #slides>
+
+      <ion-slide class="swiper-no-swiping">
+        <div>
+          <img name='question' src="./../../../../assets/app/svg/form-question.svg" />
+          <h2>Olá, tudo bem? <p><b>Espero que sim!</b></h2>
+          <p>É seguinte,<b>eu quero te dar mais acessos no aplicativo,</b> por isso vou te fazer algumas perguntas blz?
+            <b>Vai ser bem rapidinho.</b></p>
+        </div>
+
+        <!-- <h2>Vamos lá?</h2> -->
+        <ion-button (click)="begin($event);" fill="clear">Seguir em frente<ion-icon slot="end" name="arrow-forward">
+          </ion-icon>
+        </ion-button>
+
+      </ion-slide>
+
+      <ion-slide class="swiper-no-swiping" *ngFor="let fields of collectionFilter">
+        <!-- <img src="./slide-2.png" /> 
+          <p><b>Vamos começar...</b> vai ser bem rapidinho.</p>
+          -->
+
+
+        <img name='question' src="./../../../../assets/app/svg/form-question.svg" />
+
+        <h2>{{fields.FieldQuestion}}</h2>
+
+        <!-- [(ngModel)]="model+'.'+ '{{fields.FieldName}}''" -->
+        <!-- [(ngModel)]="model.'+'{{fields.FieldName}}'"   
+        [(ngModel)]="model.{{fields.FieldName}"                 
+        -->
+
+        <ion-grid>
+          <ion-row>
+            <ion-col size-sm="12" size-xs="12" size-md="12" size-lg="12" size-xl="12" class="ion-align-self-center">
+              <ion-item>
+                <ion-label position="floating">{{fields.FieldCaption}}</ion-label>
+
+                <!-- <div item-content *ngIf="{{fields.FieldType}} == 'text' ">                              
+                </div>
+                class="inputUpperCase"
+                [(ngModel)]= "model.Value"      
+                 -->
+                <ion-input (ionChange)="getData($event);" type="{{fields.FieldType}}" name="{{fields.FieldName}}"
+                  placeholder="{{fields.FieldPlaceholder}}" pattern="{{fields.FieldPattern}}" required>
+                </ion-input>
+
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <div id="div{{fields.FieldName}}">
+          <ion-button type="submit" id="btn{{fields.FieldName}}" disabled="!form.valid" fill="clear">Vamos em frente
+            <ion-icon slot="end" name="arrow-forward"></ion-icon>
+          </ion-button>
+        </div>
+
+      </ion-slide>
+
+
+      <!-- [routerLink]="['/menu/options/tabs/main']" -->
+      <ion-slide class="swiper-no-swiping">
+        <div>
+          <img name='question' src="./../../../../assets/app/svg/form-question.svg" />
+          <h1>Pronto! Agora só falta a validação</h1>
+          <p><b>Com isso o sistema vai processar os dados.</b> </p>
+        </div>
+
+        <ion-button (click)="saveData($event)" fill="clear">Validar Meus Dados<ion-icon slot="end" name="arrow-forward">
+          </ion-icon>
+        </ion-button>
+
+      </ion-slide>
+
+    </ion-slides>
+
+  </form>
+
+
+</ion-content>

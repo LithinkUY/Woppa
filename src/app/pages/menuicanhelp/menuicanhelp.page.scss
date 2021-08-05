@@ -1,0 +1,73 @@
+ion-icon {
+    &[class*="custom-"] {
+      mask-size: contain;
+      mask-position: 50% 50%;
+      mask-repeat: no-repeat;
+      background: currentColor;
+      justify-content: center;
+      width: 1em;
+      height: 1em;
+    }
+  /*
+    &[class*="custom-mobile"] {
+      mask-image: url('../../../assets/gerinfra33/imgs/Compras.png');
+    }
+  */
+}
+/*
+ion-icon[name='preco']:before {
+    content: url('../../../assets/gerinfra33/imgs/Compras.png');
+}
+*/
+.label{
+  justify-content: center;
+  display: flex!important;
+  align-items: center!important;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  // line-height: 1.5;
+}
+
+.col{
+  background: white;
+  border: think solid red;
+  align-items: center!important;  
+}
+
+.clearme{
+  clear: both !important;
+  align-items: center
+}
+
+.notifications {
+  font-size: 16px;
+  // font-weight: bold;    
+  color: rgb(255, 0, 0);
+  position:absolute; bottom: 50px; top:5px; left:37px;
+  //text-decoration: lightness($color: #ffffff);
+  border-radius: 0px;
+  border-radius: 0px;
+  border: 2px solid #ffffff;
+}
+
+.numberCircle {
+  border-radius: 50%;
+  position:absolute; bottom: 50px; top:0px; left:33px;
+  width: 24px;
+  height: 24px;
+  padding: 6px;
+
+  background: rgb(255, 0, 0);
+  // border: 1px solid rgb(255, 255, 255);  
+  text-align: center;
+  color: rgb(255, 255, 255);  
+  font: 10px Arial, sans-serif, bold;  
+}
+
+ion-icon {
+  cursor: pointer;
+}
+ion-icon:hover {
+  cursor: pointer;
+}

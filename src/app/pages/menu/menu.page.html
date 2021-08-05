@@ -1,0 +1,73 @@
+<ion-split-pane contentId="content">
+  <ion-menu contentId="content">
+
+
+    
+    <!--
+    <ion-card class="ion-text-center" color="secudary">
+      <ion-card-header>
+        <ion-icon size="x-large" class="menuapp-primary" src="{{iconAvatarUsuario}}"></ion-icon>
+        <ion-card-title>{{ NomeUsuarioSistema }} </ion-card-title>
+        <ion-card-subtitle>Matrícula: {{Matricula}}</ion-card-subtitle>
+         <ion-card-subtitle>Suporte ID: {{CodigoUsuarioSuporte}}</ion-card-subtitle>
+      </ion-card-header>
+    
+    </ion-card>
+
+
+      <ion-item>
+          <ion-label> Matrícula: {{Matricula}}</ion-label>
+        </ion-item>
+ 
+
+    -->
+
+    <ion-content>
+
+      <ion-list>
+        <ion-item tappable >
+          <ion-icon color="primary" name="contact"></ion-icon>
+          <ion-label> {{ NomeUsuarioSistema }}</ion-label>          
+        </ion-item>      
+        
+        <ion-menu-toggle auto-hide="false" *ngFor="let MenuItems of SideMenu">
+          <ion-item tappable routerDirection="root" [class.active-item]="selectedPath.startsWith(MenuItems.Route)"
+            (click)="itemSelected(MenuItems)">
+            <ion-icon color="secondary" name="{{ MenuItems }}"></ion-icon>
+            <ion-label>
+              {{ MenuItems.Name }}
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-item  *ngIf="showBtn" tappable (click)="add_to_home()" >
+          <ion-icon color="primary" name="appstore"></ion-icon>
+          <ion-label>Instalar Woppa</ion-label>
+        </ion-item>
+        <!-- 
+        <div class="button_pwa">
+          <ion-button ion-button full (click)="add_to_home()" *ngIf="showBtn" >Instalar no celular</ion-button>
+        </div> 
+      -->
+
+        <ion-item tappable routerLink="/login" routerDirection="root">
+          <ion-icon color="primary" name="log-out"></ion-icon>
+          <ion-label>Sair</ion-label>
+        </ion-item>
+
+        
+      </ion-list>
+
+
+
+
+    </ion-content>
+    <!--
+    <ion-item padding class="ion-text-center" lines="none">
+      <img src="/assets/gerinfra33/imgs/LgMOP.png">
+    </ion-item>
+    -->
+
+  </ion-menu>
+  <ion-router-outlet id="content" main></ion-router-outlet>
+</ion-split-pane>

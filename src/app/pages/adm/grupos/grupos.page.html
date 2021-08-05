@@ -1,0 +1,151 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>{{ title }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="mostrarPop( $event )">
+        <ion-icon name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+
+    
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="12" size-xs="12" size-md="12" size-lg="12" size-xl="12" class="ion-align-self-center">
+        <ion-item lines="none" color="secondary" class="ion-text-center">
+          <h5><strong>{{ subtitle }}</strong></h5>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-toolbar color="light" *ngIf="flagForm == false">
+    <!-- #################### Filtro Basico ##################### -->
+    <div id="divFiltro" *ngIf="permissoes.Pesquisar">
+      <ion-searchbar *ngIf="flagFiltroAvanzado == false" placeholder="Pesquisar" (ionInput)="getItems($event)">
+      </ion-searchbar>
+    </div>
+
+    <!-- #################### Filtro Avançado ##################### -->
+    <div id="divFiltroAvanzado" *ngIf="flagFiltroAvanzado">
+
+      <form #frmFiltroAvanzado="ngForm" (ngSubmit)="submitFiltrar(frmFiltroAvanzado)" method="POST"
+        name="frmFiltroAvanzado">
+        <ion-grid>
+          <ion-row>
+            <ion-col size-sm="4" size-xs="12">
+              <ion-item>
+                <ion-label position="floating">Segmento</ion-label>
+                <ion-input type="text" [(ngModel)]="modelPesquisa.NomeSegmento" name="NomeSegmento"></ion-input>
+              </ion-item>
+
+            </ion-col>
+            <ion-col size-sm="4" size-xs="12">
+              <ion-item>
+                <ion-label position="floating">Grupo</ion-label>
+                <ion-input type="text" [(ngModel)]="modelPesquisa.Grupo" name="Grupo" #txtNome></ion-input>
+              </ion-item>
+
+            </ion-col>
+            <ion-col size-sm="2" size-xs="12">
+              <ion-button type="submit" expand="block" color="secondary" [disabled]="permissoes.Pesquisar == 0">
+                Pesquisar
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+
+    </div>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <!-- #################### Formulario ##################### -->
+  <div *ngIf="flagForm" class="ion-padding">
+
+    <form #form="ngForm" (ngSubmit)="salvar(form);" method="post" name="frmSegmento">
+      <ion-grid>
+
+  
+
+
+        <ion-row>
+          <ion-col size-sm="12" size-xs="12" size-md="6" size-lg="6" size-xl="6" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Segmento:<em class="label-opcional"></em></ion-label>              
+              <ion-select placeholder="Selecione:"  interface="popover" [(ngModel)]="model.CodigoSegmento" name="CodigoSegmento">
+                <ion-select-option *ngFor="let option of collectionSegmentos" value="{{option.CodigoSegmento}}" >{{option.Nome}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>        
+          <ion-col size-sm="12" size-xs="12" size-md="6" size-lg="6" size-xl="6" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Nome</ion-label>
+              <ion-input type="text" [(ngModel)]="model.Grupo" name="Grupo" #txtNome></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        
+        <ion-row>
+          <ion-col size-sm="12" size-xs="12" size-md="12" size-lg="12" size-xl="12" class="ion-align-self-center">
+            <ion-button type="submit" [disabled]="!form.valid" expand="block" color="secondary">
+              Salvar
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+
+  <!-- #################### Listagem da informação ##################### -->
+  <div *ngIf="flagForm == false" class="ion-padding">
+    <ion-list>
+
+
+      <ion-item *ngFor="let item of collectionFilter">
+        <ion-label>
+          <h3>{{ item.Grupo }}</h3>
+          <p>Segmento: {{ item.NomeSegmento }}</p>
+        </ion-label>
+
+        <ion-buttons>
+          <ion-button (click)="edit(item)" [disabled]="permissoes.Editar == 0" slot="end" fill="clear" shape="round">
+            <ion-icon name="create" color="secondary"></ion-icon>
+          </ion-button>
+          <ion-button (click)="delete(item)" [disabled]="permissoes.Deletar == 0" slot="end" fill="clear" shape="round">
+            <ion-icon name="trash" color="secondary"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+
+      </ion-item>
+
+      <ion-item *ngIf="collectionFilter?.length === 0">
+        <ion-label class="ion-text-center">
+          Nenhum informação para mostrar
+        </ion-label>
+      </ion-item>
+
+    </ion-list>
+  </div>
+
+  <!-- #################### Botão Add ##################### -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="flagForm == false">
+    <ion-fab-button color="secondary" (click)="create()" [disabled]="permissoes.Inserir == 0">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button slot="start">
+        <ion-icon slot="icon-only" src="./../../../../assets/app/svg/news.svg" name="help"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Notícias Sinal</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content fullscreen class="ion-padding" scroll-y="false">
+
+  <ion-slides #slides>
+
+    <ion-slide class="swiper-no-swiping">
+      <div>
+        <img name='question' src="./../../../../assets/app/svg/news.svg" />
+
+        <h2>Olá, saiba mais... <p><b>Para obter notícias atualizadas,</b></h2>
+        <b>acessar o portal de notícias clicando no botão (link) abaixo.</b>
+      </div>
+      <br>
+      <ion-button (click)="portalNoticias($event, 'https://portal.sinal.org.br/apito-brasil/edicoes-anteriores/');" fill="clear">Apito Brasil<ion-icon slot="end"
+          name="link">
+        </ion-icon>
+      </ion-button>
+      <br>
+
+      <ion-button (click)="portalNoticias($event,'https://portal.sinal.org.br/juridico-old/noticias/');" fill="clear">Notícias Jurídicas<ion-icon slot="end"
+        name="link">
+      </ion-icon>
+    </ion-button>
+    <br>
+    <ion-button (click)="portalNoticias($event,'https://portal.sinal.org.br/noticias/sinal-na-midia/');" fill="clear">Sinal na mídia <ion-icon slot="end"
+      name="link">
+    </ion-icon>
+  </ion-button>
+
+    </ion-slide>
+
+  </ion-slides>
+
+</ion-content>

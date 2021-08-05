@@ -1,0 +1,52 @@
+<ion-content>
+  <div class="modal__background">
+    <span class="modal__wrap">
+      <div class="modal__header">
+        <ion-buttons slot="start">
+          <ion-button  (click)="closeModal()">
+             <ion-icon class="main__icon" name="arrow-round-back"></ion-icon>
+          </ion-button> 
+        </ion-buttons>
+        <img src="../../../assets/app/logo/logoWoppa.png" alt="" [routerLink]="['/']" >
+      </div>
+      
+      <h3 class="woppa__subtitle">Mais Resultados</h3>
+  
+      <section>
+        <div class="wrap">  
+          <div class="glider-contain">
+              <ul class="woppa__list">
+                <li class="woppa__item"  (click)="goSupplierProducts()" >
+                  <div class="overlay"></div>
+                  <img class="woppa__image" src="../../../assets/app/img/img1.jpg" >
+                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                </li>
+                <li class="woppa__item" (click)="goSupplierProducts()" >
+                  <div class="overlay"></div>
+                  <img class="woppa__image" src="../../../assets/app/img/img1.jpg">
+                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                </li>
+                <li class="woppa__item" (click)="goSupplierProducts()" >
+                  <div class="overlay"></div>
+                  <img class="woppa__image" src="../../../assets/app/img/img1.jpg">
+                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                </li>
+                <li class="woppa__item" (click)="goSupplierProducts()" >
+                  <div class="overlay"></div>
+                  <img class="woppa__image" src="../../../assets/app/img/img1.jpg">
+                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                </li>
+              </ul>
+          </div>
+       
+        </div>
+      </section>
+  
+  
+      <span class="woppa__content"> 
+        <button (click)="goBack()" class="woppa__button default">Ver Todos</button>
+       
+      </span>
+    </span>
+  </div>
+</ion-content>

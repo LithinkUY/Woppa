@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="313" height="97.219" viewBox="0 0 313 97.219">
+  <defs>
+    <filter id="Icon_feather-star" x="0" y="49.794" width="47.424" height="47.424" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Icon_feather-star-2" x="61.476" y="19.844" width="47.424" height="47.424" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Icon_feather-star-3" x="265.576" y="49.794" width="47.424" height="47.424" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-3"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Icon_feather-star-4" x="136.584" y="0" width="47.424" height="47.424" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-4"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Icon_feather-star-5" x="211.671" y="20.37" width="47.424" height="47.424" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-5"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-5"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Grupo_130" data-name="Grupo 130" transform="translate(-36 -37.233)">
+    <g transform="matrix(1, 0, 0, 1, 36, 37.23)" filter="url(#Icon_feather-star)">
+      <path id="Icon_feather-star-6" data-name="Icon feather-star" d="M17.712,3l4.546,9.684,10.166,1.562-7.356,7.534L26.8,32.424,17.712,27.4,8.62,32.424l1.736-10.644L3,14.247l10.166-1.562Z" transform="translate(6 52.79)" fill="#fe0"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 36, 37.23)" filter="url(#Icon_feather-star-2)">
+      <path id="Icon_feather-star-7" data-name="Icon feather-star" d="M17.712,3l4.546,9.684,10.166,1.562-7.356,7.534L26.8,32.424,17.712,27.4,8.62,32.424l1.736-10.644L3,14.247l10.166-1.562Z" transform="translate(67.48 22.84)" fill="#fe0"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 36, 37.23)" filter="url(#Icon_feather-star-3)">
+      <path id="Icon_feather-star-8" data-name="Icon feather-star" d="M17.712,3l4.546,9.684,10.166,1.562-7.356,7.534L26.8,32.424,17.712,27.4,8.62,32.424l1.736-10.644L3,14.247l10.166-1.562Z" transform="translate(271.58 52.79)" fill="#fe0"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 36, 37.23)" filter="url(#Icon_feather-star-4)">
+      <path id="Icon_feather-star-9" data-name="Icon feather-star" d="M17.712,3l4.546,9.684,10.166,1.562-7.356,7.534L26.8,32.424,17.712,27.4,8.62,32.424l1.736-10.644L3,14.247l10.166-1.562Z" transform="translate(142.58 3)" fill="#fe0"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 36, 37.23)" filter="url(#Icon_feather-star-5)">
+      <path id="Icon_feather-star-10" data-name="Icon feather-star" d="M17.712,3l4.546,9.684,10.166,1.562-7.356,7.534L26.8,32.424,17.712,27.4,8.62,32.424l1.736-10.644L3,14.247l10.166-1.562Z" transform="translate(217.67 23.37)" fill="#fe0"/>
+    </g>
+  </g>
+</svg>

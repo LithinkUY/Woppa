@@ -1,0 +1,75 @@
+/* --------------- */
+/* Tipografia      */
+/* --------------- */
+
+// @font-face {
+//   font-family: Atma;
+//   src: url(../font/Atma-Regular.ttf);
+// }
+
+// @font-face {
+//   font-family: Glacial;
+//   src: url(../font/GlacialIndifference-Regular.otf);
+// }
+
+/* --------------- */
+/* Estrutura       */
+/* --------------- */
+
+.body {
+  margin: 0;
+  padding: 0;
+  background: rgb(238, 238, 238);
+  background: linear-gradient(0deg, rgba(238, 238, 238, 1) 0%,
+      rgba(255, 255, 255, 1) 100%, rgba(255, 255, 255, 1) 100%);
+  font-family: sans-serif;
+}
+
+.content {
+  display: block;
+}
+
+.wrap {
+  text-align: center;
+  padding: 20px;
+}
+
+.wrap:first-child {
+  padding-top: 0;
+}
+
+.woppa__gradient {
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(212,239,255,1) 5%, rgba(56,182,255,1) 9%, rgba(140,0,145,1) 100%);
+}
+
+.woppa__home {
+  --background: transparent!important;
+
+}
+
+.main__toolbar {
+
+  --background: transparent;
+  color: #555;
+  padding: 10px;
+  
+  .header-md:after {
+    opacity: 0;
+  }
+}
+
+.woppa__heading {
+  font-size: 1.5em;
+  color: #5a5a5a;
+  font-weight: bold;
+  margin-top: 0;
+
+  &.white {
+    color: white;
+  }
+}
+
+.woppa__heading,
+.woppa__title {
+  text-align: left;
+}

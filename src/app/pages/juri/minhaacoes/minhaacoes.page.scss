@@ -1,0 +1,87 @@
+$primary-color: #4babeb;
+$secondary-color: #e73636;
+$tertiary-first: #d8aa13;
+$tertiary-second: #b0e59b;
+$tertiary-third: #d1faff;
+
+ion-slides {    
+  .swiper-slide {
+    display: block;
+  }
+
+  .swiper-slide h2 {
+    margin-top: 2.8rem;
+  }
+
+  .swiper-slide img {
+   // max-height: 15%;
+   // max-width: 20%;
+    height: 120px;   
+    width: 440px;   
+    margin: 5px 0 5px;
+    pointer-events: none;    
+  }
+
+  b {
+    font-weight: 500;
+  }
+
+  p {
+    padding: 0 40px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--ion-color-step-600, #60646b);
+  }  
+
+  p b {
+    color: var(--ion-text-color, #000000);
+  }
+ 
+  
+
+}
+
+.inputUpperCase {  
+  text-transform: uppercase;
+}
+
+
+/* Set the width to the full container and center the content */
+ion-select {
+  width: 100%;
+
+  justify-content: center;
+}
+
+/* Set the flex in order to size the text width to its content */
+ion-select::part(placeholder),
+ion-select::part(text) {
+  flex: 0 0 auto;
+}
+
+/* Set the placeholder color and opacity */
+ion-select::part(placeholder) {
+  color: #20a08a;
+  opacity: 1;
+}
+
+/*
+ * Set the font of the first letter of the placeholder
+ * Shadow parts work with pseudo-elements, too!
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements
+ */
+ion-select::part(placeholder)::first-letter {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+/* Set the text color */
+ion-select::part(text) {
+  color: #545ca7;
+}
+
+/* Set the icon color and opacity */
+ion-select::part(icon) {
+  color: #971e49;
+  opacity: 1;
+}

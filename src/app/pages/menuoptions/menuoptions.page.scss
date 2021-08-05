@@ -1,0 +1,75 @@
+ion-icon {
+    &[class*="custom-"] {
+      mask-size: contain;
+      mask-position: 50% 50%;
+      mask-repeat: no-repeat;
+      background: currentColor;
+      width: 1em;
+      height: 1em;
+    }
+  /*
+    &[class*="custom-mobile"] {
+      mask-image: url('../../../assets/gerinfra33/imgs/Compras.png');
+    }
+  */
+}
+/*
+ion-icon[name='preco']:before {
+    content: url('../../../assets/gerinfra33/imgs/Compras.png');
+}
+*/
+.label{
+  justify-content: center;
+  display: flex!important;
+ align-items: center!important;
+}
+
+.col{
+  background: white;
+  border: think solid red;
+  
+}
+
+.clearme{
+  clear: both !important;
+  align-items: center
+}
+
+
+.home {
+  background-image: url(../../../assets/app/svg/home.svg);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.alerta {
+  background-image: url(../../../assets/app/svg/alerta.svg);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+
+.pesquisar {
+  background-image: url(../../../assets/app/svg/pesquisar.svg);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+
+.favoritos {
+  background-image: url(../../../assets/app/svg/favoritar.svg);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+
+.carteira {
+  background-image: url(../../../assets/app/svg/carteira.svg);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}

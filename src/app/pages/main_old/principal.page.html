@@ -1,0 +1,69 @@
+<ion-header>
+
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+
+    <ion-buttons slot="primary">
+      <!-- <b class="numberCircle" >99</b>
+      <ion-button  [routerLink]="['/message-notifications']" >
+        <ion-icon slot="icon-only" name="notifications"></ion-icon>
+      </ion-button>       -->
+      <ion-button>
+        <ion-icon slot="icon-only" name="help"></ion-icon>
+      </ion-button>      
+    </ion-buttons>
+
+
+    <ion-title>{{title}} </ion-title>
+  </ion-toolbar>
+
+</ion-header>
+<ion-content class="ion-fullscreen  ion-padding">
+  <ion-searchbar placeholder="Pesquisar" (ionInput)="getItems($event)"></ion-searchbar>
+
+  <div *ngIf="flagMenuList == false" class="ion-padding">
+    <ion-grid>
+
+      <ion-row class="ion-justify-content-center align-items-center">
+        <!-- class="ion-padding" size="4" size-sm  -->
+        <ion-col size="4"  ion-item no-lines ion-padding ion-text-center col-2 *ngFor="let item of items" class="col"
+          (click)="itemSelected(item)">
+          <div class="ion-text-center" >
+            <ion-icon style="zoom:2.8;" slot="start" name="{{item.Icon}}" src="{{item.Icon}}" class="menuapp-primary">
+            </ion-icon>
+            <ion-label class="label">
+              {{item.Name}}
+            </ion-label>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div *ngIf="flagMenuList == true" class="ion-padding">
+    <ion-list>
+      <ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+        <!-- <ion-avatar slot="start" background="primary"> 
+        <img src="{{item.Icon}}">
+        </ion-avatar>   -->
+        <ion-icon style="zoom:1.0;" slot="start" name="{{item.Icon}}" src="{{item.Icon}}" class="menuapp-primary">
+        </ion-icon>
+        <ion-label class="ion-text-wrap">
+          <strong>{{item.Name}}</strong><br>
+          {{item.Details}}
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>
+<!--
+<ion-footer class="ion-text-center">
+  <div *ngIf='items?.length > 0' class="center">
+    Total de Registro Filtrados: {{ items.length  }}
+  </div>
+</ion-footer>
+-->

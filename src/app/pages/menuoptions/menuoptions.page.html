@@ -1,0 +1,30 @@
+
+<ion-tabs>
+
+  <ion-tab-bar color="tint" slot="bottom">
+   
+    <ion-tab-button tab="main" [routerLink]="['/']" >
+      <ion-icon class="home"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="main" [routerLink]="['/product-portfolio']">
+      <ion-icon name="alerta" class="alerta"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="main" (click)="goServiceProviders();">
+      <ion-icon name="pesquisar" class="pesquisar"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="main" (click)="goFavorites();" >
+      <ion-icon name="favoritos" class="favoritos"></ion-icon>
+    </ion-tab-button>
+    
+    <ion-tab-button tab="main" (click)="goWallet();"  >
+      <ion-icon name="carteira" class="carteira"></ion-icon>
+    </ion-tab-button>
+    
+  </ion-tab-bar>
+
+</ion-tabs> 
+
+

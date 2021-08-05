@@ -1,0 +1,209 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>{{ title }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="mostrarPop( $event )">
+        <ion-icon name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="12" size-xs="12" size-md="12" size-lg="12" size-xl="12" class="ion-align-self-center">
+        <ion-item lines="none" color="secondary" class="ion-text-center">
+          <h5><strong>{{ subtitle }}</strong></h5>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-toolbar color="light" *ngIf="flagForm == false">
+    <!-- #################### Filtro Basico ##################### -->
+    <div id="divFiltro" *ngIf="permissoes.Pesquisar">
+      <ion-grid>
+        <ion-row>
+          <ion-col size-sm="12" size-xs="12" size-md="12" size-lg="12" size-xl="12" class="ion-align-self-center">
+            <ion-searchbar *ngIf="flagFiltroAvanzado == false" placeholder="Pesquisar" (ionInput)="getItems($event)">
+            </ion-searchbar>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <!-- #################### Filtro Avançado ##################### -->
+    <div id="divFiltroAvanzado" *ngIf="flagFiltroAvanzado">
+
+      <form #frmFiltroAvanzado="ngForm" (ngSubmit)="submitFiltrar(frmFiltroAvanzado)" method="POST"
+        name="frmFiltroAvanzado">
+        <ion-grid>
+          <ion-row>
+
+            <ion-col size-sm="4" size-xs="12">
+              <ion-list>
+                <ion-item *ngFor="let perfil of collectionPerfis">
+                  <ion-label>{{perfil.label}}</ion-label>
+                  <ion-checkbox slot="start" name="Perfis_{{perfil.label}}" [(ngModel)]="perfil.checked"></ion-checkbox>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+
+            <ion-col size-sm="2" size-xs="12">
+              <ion-button type="submit" expand="block" color="secondary" [disabled]="permissoes.Pesquisar == 0">
+                Pesquisar
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+
+    </div>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <!-- #################### Formulario ##################### -->
+  <div *ngIf="flagForm" class="ion-padding">
+
+    <form #form="ngForm" (ngSubmit)="salvar(form);" method="post" name="frmSegmento">
+      <ion-grid>
+        <ion-row>
+          <ion-col size-sm="8" size-md="6" size-lg="4" offsetSm="2" offsetMd="3" offsetLg="4"
+            class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Nome</ion-label>
+              <ion-input type="text" [(ngModel)]="model.Nome" name="Nome" #txtNome required></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size-sm="8" size-md="6" size-lg="4" offsetSm="2" offsetMd="3" offsetLg="4"
+            class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Sobrenome</ion-label>
+              <ion-input type="text" [(ngModel)]="model.SobreNome" name="SobreNome"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size-sm="8" size-md="6" size-lg="4" offsetSm="2" offsetMd="3" offsetLg="4"
+            class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">E-mail</ion-label>
+              <ion-input type="email" name="Email" pattern="[A-Za-z0-9._%+-]{2,}@[a-zA-Z-_.]{2,}[.]{1}[a-zA-Z]{2,}"
+                required [(ngModel)]="model.Email"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size-sm="8" size-md="6" size-lg="4" offsetSm="2" offsetMd="3" offsetLg="4"
+            class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Celular</ion-label>
+              <ion-input type="tel" min="9" maxlength="15" name="Celular" required [(ngModel)]="model.Celular">
+              </ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size-sm="8" size-md="6" size-lg="4" offsetSm="2" offsetMd="3" offsetLg="4"
+            class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">CPF/CNPJ</ion-label>
+              <ion-input type="text" min="11" maxlength="18" name="CnpjCpf" required [(ngModel)]="model.CnpjCpf"
+                required (ionChange)="CnpjCpf = formatMask('CnpjCpf', model.CnpjCpf,'CPFCNPJ')"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+
+        <ion-row>
+          <ion-col size-sm="8" size-md="6" size-lg="4" offsetSm="2" offsetMd="3" offsetLg="4"
+            class="ion-align-self-center">
+            <ion-button type="submit" [disabled]="!form.valid" expand="block" color="secondary">
+              Salvar
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+
+  <!-- #################### Listagem da informação ##################### -->
+  <div *ngIf="flagForm == false" class="ion-padding">
+    <ion-list>
+
+      <ion-card *ngFor="let item of collectionFilter">
+        <ion-card-header>
+          <ion-card-title>{{ item.Nome }} {{ item.SobreNome }}</ion-card-title>
+          <ion-card-subtitle><strong>CPF:</strong>{{ item.CpfCnpjMask }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <h3>Perfis:</h3>
+          <ion-chip color="primary" *ngFor="let perfil of item.Perfis">
+            <ion-icon name="person"></ion-icon>
+            <ion-label>{{perfil.NomePerfil}}</ion-label>
+
+            <ion-button (click)="delete(item, perfil)" [disabled]="permissoes.Deletar == 0" fill="clear" shape="round"
+              class="ion-padding-right">
+              <ion-icon name="close-circle"></ion-icon>
+            </ion-button>
+
+          </ion-chip>
+
+          
+          
+          <!-- 
+            <ion-item>
+            <ion-label position="floating">Adicionar Perfis </ion-label>
+            <ionic-selectable nome="NomePerfil" confirmButtonText="Confirmar" closeButtonText="X"
+              searchPlaceholder="Pesquisar" searchFailText="Nenhum registro encontrado." 
+              [(ngModel)]="model.CodigoUsuarioPerfil"
+              [ngModelOptions]="{standalone: true}" 
+              [items]="collectionPerfisFilter" 
+              itemValueField="CodigoUsuarioPerfil"
+              itemTextField="NomePerfil" [canSearch]="true" 
+              (onChange)="selectChange($event, 'CodigoUsuarioPerfil' )"
+              required>
+            </ionic-selectable>
+          </ion-item> 
+          -->
+
+
+          <!-- <ion-chip outline color="primary"> -->
+          <ion-button (click)="create(item)" [disabled]="permissoes.Inserir == 0" fill="clear" shape="round"
+            class="ion-no-padding" color="secondary">
+            <ion-icon size="large" name="add-circle-outline"></ion-icon>
+          </ion-button>
+          
+          <!-- </ion-chip> -->
+
+
+        </ion-card-content>
+      </ion-card>
+
+      <ion-item *ngIf="collectionFilter?.length === 0">
+        <ion-label class="ion-text-center">
+          Nenhum informação para mostrar
+        </ion-label>
+      </ion-item>
+
+    </ion-list>
+  </div>
+
+</ion-content>

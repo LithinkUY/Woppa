@@ -1,0 +1,52 @@
+<!--
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pegue Oferta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card-content>
+      Pegue sua oferta agora e encontra diversas 
+      outras ofertas que também podem ser do teu interesse.
+    </ion-card-content>
+  </ion-card>
+
+  <div  class="ion-text-center">
+    Apresente o QR Code abaixo e garanta seu produto
+  </div>
+
+  <div class="ion-text-center">
+    <qrcode [qrdata]="qrData" [width]="120" [errorCorrectionLevel]="'M'"></qrcode>
+      oferta
+  </div>
+
+  <ion-button color="secondary" expand="block" [routerLink]="['/menu']">
+  Usar Oferta Acima
+  </ion-button>
+
+</ion-content>
+-->
+
+<div class="modal__background">
+  <span class="modal__wrap">
+    <div class="modal__header">
+      <img src="../../../assets/app/logo/IconeWoppa-branco.png" alt="">
+    </div>
+    <span class="woppa__promo">
+      <h3 class="woppa__subtitle">Pegue sua oferta!</h3>
+      <p class="woppa__caption">Pegue sua oferta agora e encontra diversas 
+        outras ofertas que também podem ser do teu interesse.</p>
+    </span>
+    <div class="woppa__item">
+      <div class="overlay"></div>
+      <h2 class="woppa__qrcode-title">Apresente o QR Code abaixo e garanta seu produto!</h2>
+      <img class="woppa__image" src="../../../assets/app/img/qr-code.png">
+    </div>
+    <span class="woppa__content">
+      <button  class="woppa__button yellow">Usar oferta agora</button>
+      <button (click)="goBack()"  class="woppa__button modal">Voltar</button>
+    </span>
+  </span>
+</div>

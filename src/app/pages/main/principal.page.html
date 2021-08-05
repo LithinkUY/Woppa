@@ -1,0 +1,212 @@
+<ion-header no-border>
+
+  <ion-toolbar no-shadow class="main__toolbar">
+
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <ion-icon class="menu-burguer"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+
+    <ion-buttons slot="primary">
+      <img style="max-width: 60px;" src="../../../assets/app/logo/logoWoppa.png" alt="Logo Woppa">
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <div class="woppa__home">
+
+    <section>
+      <div class="wrap">
+        <h2 class="woppa__heading">Categorias Populares</h2>
+        <div class="glider-contain">
+          <ion-slides class="ion-slides" [options]="slideOpts">
+            <ion-slide>
+              <li class="woppa__listagem-item">
+                <a class="woppa__listagem-link">
+                  <div class="overlay"></div>
+                  <div (click)="favoritarItem()" class="heart">
+                    <svg viewBox="0 0 24 24" style="pointer-events: none; width: 34px; height: 34px; display: block;">
+                      <g id="favorite" class="favorite">
+                        <path
+                          d="M12,21.4L10.6,20C5.4,15.4,2,12.3,2,8.5C2,5.4,4.4,3,7.5,3c1.7,0,3.4,0.8,4.5,2.1C13.1,3.8,14.8,3,16.5,3C19.6,3,22,5.4,22,8.5c0,3.8-3.4,6.9-8.6,11.5L12,21.4z">
+                        </path>
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="woppa__item-overflow">
+                    <img class="woppa__sticker" src="../../../assets/app/icon/novo-rnd.svg" alt="Novo Produto">
+                    <img class="woppa__image listagem " src="../../../assets/app/img/whooper.jpg"
+                      alt="Imagem meramente ilustrativa">
+                  </div>
+                  <p class="woppa__listagem-title">Burguer King</p>
+                  <p class="woppa__listagem-caption">Compre um Wooper, ganhe uma batata frita grande + refri</p>
+                  <button [routerLink]="['/menu/unlock-offer']" class="woopa__button-listagem">Economize R$20!</button>
+                </a>
+              </li>
+            </ion-slide>
+            <ion-slide>
+              <li class="woppa__listagem-item">
+                <a class="woppa__listagem-link">
+                  <div class="overlay"></div>
+                  <div (click)="favoritarItem()" class="heart">
+                    <svg viewBox="0 0 24 24" style="pointer-events: none; width: 34px; height: 34px; display: block;">
+                      <g id="favorite" class="favorite">
+                        <path
+                          d="M12,21.4L10.6,20C5.4,15.4,2,12.3,2,8.5C2,5.4,4.4,3,7.5,3c1.7,0,3.4,0.8,4.5,2.1C13.1,3.8,14.8,3,16.5,3C19.6,3,22,5.4,22,8.5c0,3.8-3.4,6.9-8.6,11.5L12,21.4z">
+                        </path>
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="woppa__item-overflow">
+                    <img class="woppa__sticker" src="../../../assets/app/icon/novo-rnd.svg" alt="Novo Produto">
+                    <img class="woppa__image listagem " src="../../../assets/app/img/whooper.jpg"
+                      alt="Imagem meramente ilustrativa">
+                  </div>
+                  <p class="woppa__listagem-title">Burguer King</p>
+                  <p class="woppa__listagem-caption">Compre um Wooper, ganhe uma batata frita grande + refri</p>
+                  <button [routerLink]="['/menu/unlock-offer']" class="woopa__button-listagem">Economize R$20!</button>
+                </a>
+              </li>
+            </ion-slide>
+            <ion-slide>
+              <li class="woppa__listagem-item">
+                <a class="woppa__listagem-link">
+                  <div class="overlay"></div>
+                  <div (click)="favoritarItem()" class="heart">
+                    <svg viewBox="0 0 24 24" style="pointer-events: none; width: 34px; height: 34px; display: block;">
+                      <g id="favorite" class="favorite">
+                        <path
+                          d="M12,21.4L10.6,20C5.4,15.4,2,12.3,2,8.5C2,5.4,4.4,3,7.5,3c1.7,0,3.4,0.8,4.5,2.1C13.1,3.8,14.8,3,16.5,3C19.6,3,22,5.4,22,8.5c0,3.8-3.4,6.9-8.6,11.5L12,21.4z">
+                        </path>
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="woppa__item-overflow">
+                    <img class="woppa__sticker" src="../../../assets/app/icon/novo-rnd.svg" alt="Novo Produto">
+                    <img class="woppa__image listagem " src="../../../assets/app/img/whooper.jpg"
+                      alt="Imagem meramente ilustrativa">
+                  </div>
+                  <p class="woppa__listagem-title">Burguer King</p>
+                  <p class="woppa__listagem-caption">Compre um Wooper, ganhe uma batata frita grande + refri</p>
+                  <button [routerLink]="['/menu/unlock-offer']" class="woopa__button-listagem">Economize R$20!</button>
+                </a>
+              </li>
+            </ion-slide>
+          </ion-slides>
+        </div>
+      </div>
+    </section>
+
+    <div class="woppa__gradient">
+      <section>
+        <div class="wrap ofertas">
+          <h2 class="woppa__heading white">Ofertas especiais</h2>
+          <ul class="woppa__listagem">
+            <li class="woppa__listagem-item">
+              <a class="woppa__listagem-link">
+                <div class="overlay"></div>
+                <div class="woppa__item-overflow">
+                  <img class="woppa__sticker" src="../../../assets/app/icon/novo-rnd.svg" alt="Novo Produto">
+                  <img class="woppa__image listagem " src="../../../assets/app/img/img14.jpg" alt="Roupas & Utensílios">
+                </div>
+                <p class="woppa__listagem-title">Produtos Nike</p>
+                <p class="woppa__listagem-caption">Lorem ipsun dolor sit amet</p>
+                <button [routerLink]="['/menu/unlock-offer']" class="woopa__button-listagem">Economize R$20!</button>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+  
+      <section class="offers">
+        <div class="wrap">
+          <h2 class="woppa__heading white">Mais Ofertas</h2>
+          <div class="glider-contain">
+            <ion-slides class="ion-slides" [options]="slideOptsBig">
+              <ion-slide>
+                <li class="woppa__listagem-item">
+                  <a class="woppa__listagem-link">
+                    <div class="overlay"></div>
+                    <div (click)="favoritarItem()" class="heart">
+                      <svg viewBox="0 0 24 24" style="pointer-events: none; width: 34px; height: 34px; display: block;">
+                        <g id="favorite" class="favorite">
+                          <path
+                            d="M12,21.4L10.6,20C5.4,15.4,2,12.3,2,8.5C2,5.4,4.4,3,7.5,3c1.7,0,3.4,0.8,4.5,2.1C13.1,3.8,14.8,3,16.5,3C19.6,3,22,5.4,22,8.5c0,3.8-3.4,6.9-8.6,11.5L12,21.4z">
+                          </path>
+                        </g>
+                      </svg>
+                    </div>
+                    <div class="woppa__item-overflow">
+                      <img class="woppa__sticker" src="../../../assets/app/icon/novo-rnd.svg" alt="Novo Produto">
+                      <img class="woppa__image listagem " src="../../../assets/app/img/whooper.jpg"
+                        alt="Imagem meramente ilustrativa">
+                    </div>
+                    <p class="woppa__listagem-title">Burguer King</p>
+                    <p class="woppa__listagem-caption">Compre um Wooper, ganhe uma batata frita grande + refri</p>
+                    <button [routerLink]="['/menu/unlock-offer']" class="woopa__button-listagem">Economize R$20!</button>
+                  </a>
+                </li>
+              </ion-slide>
+              <ion-slide>
+                <li class="woppa__listagem-item">
+                  <a class="woppa__listagem-link">
+                    <div class="overlay"></div>
+                    <div (click)="favoritarItem()" class="heart">
+                      <svg viewBox="0 0 24 24" style="pointer-events: none; width: 34px; height: 34px; display: block;">
+                        <g id="favorite" class="favorite">
+                          <path
+                            d="M12,21.4L10.6,20C5.4,15.4,2,12.3,2,8.5C2,5.4,4.4,3,7.5,3c1.7,0,3.4,0.8,4.5,2.1C13.1,3.8,14.8,3,16.5,3C19.6,3,22,5.4,22,8.5c0,3.8-3.4,6.9-8.6,11.5L12,21.4z">
+                          </path>
+                        </g>
+                      </svg>
+                    </div>
+                    <div class="woppa__item-overflow">
+                      <img class="woppa__sticker" src="../../../assets/app/icon/novo-rnd.svg" alt="Novo Produto">
+                      <img class="woppa__image listagem " src="../../../assets/app/img/whooper.jpg"
+                        alt="Imagem meramente ilustrativa">
+                    </div>
+                    <p class="woppa__listagem-title">Burguer King</p>
+                    <p class="woppa__listagem-caption">Compre um Wooper, ganhe uma batata frita grande + refri</p>
+                    <button [routerLink]="['/menu/unlock-offer']" class="woopa__button-listagem">Economize R$20!</button>
+                  </a>
+                </li>
+              </ion-slide>
+              <ion-slide>
+                <li class="woppa__listagem-item">
+                  <a class="woppa__listagem-link">
+                    <div class="overlay"></div>
+                    <div (click)="favoritarItem()" class="heart">
+                      <svg viewBox="0 0 24 24" style="pointer-events: none; width: 34px; height: 34px; display: block;">
+                        <g id="favorite" class="favorite">
+                          <path
+                            d="M12,21.4L10.6,20C5.4,15.4,2,12.3,2,8.5C2,5.4,4.4,3,7.5,3c1.7,0,3.4,0.8,4.5,2.1C13.1,3.8,14.8,3,16.5,3C19.6,3,22,5.4,22,8.5c0,3.8-3.4,6.9-8.6,11.5L12,21.4z">
+                          </path>
+                        </g>
+                      </svg>
+                    </div>
+                    <div class="woppa__item-overflow">
+                      <img class="woppa__sticker" src="../../../assets/app/icon/novo-rnd.svg" alt="Novo Produto">
+                      <img class="woppa__image listagem " src="../../../assets/app/img/whooper.jpg"
+                        alt="Imagem meramente ilustrativa">
+                    </div>
+                    <p class="woppa__listagem-title">Burguer King</p>
+                    <p class="woppa__listagem-caption">Compre um Wooper, ganhe uma batata frita grande + refri</p>
+                    <button [routerLink]="['/menu/unlock-offer']" class="woopa__button-listagem">Economize R$20!</button>
+                  </a>
+                </li>
+              </ion-slide>
+            </ion-slides>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+
+  </div>
+  
+
+</ion-content>

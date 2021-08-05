@@ -1,0 +1,65 @@
+%button {
+    display: inline-block;
+    text-align: center;
+    width: 300px;
+    padding: 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    vertical-align: middle;
+    font-family: Glacial, sans-serif;
+    margin-top: 40px;
+    transition: .5s ease;
+    cursor: pointer;
+}
+
+%button-square {
+    display: inline-block;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    vertical-align: middle;
+    font-family: Glacial, sans-serif;
+    margin-top: 40px;
+    transition: .5s ease;
+    width: 100%;
+    cursor: pointer;
+}
+
+
+.login__button {
+    @extend %button-square;
+
+    background-color: #fff;
+    font-weight: bold;
+    color: #38B6FF;
+
+    &:hover {
+        background-color: #f33c7a;
+        color: white;
+    }
+}
+
+.wearplace__button {
+
+    @extend %button;
+
+    &.unlock {
+        color: #585252;
+        border: transparent;
+        
+        background: #FFF453;
+
+        &:hover {
+            background: #FFF453;
+        }
+    }
+
+
+}

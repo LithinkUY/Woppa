@@ -1,0 +1,152 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button slot="start">
+        <ion-icon slot="icon-only" src="./../../../../assets/app/svg/FaleConosco.svg" name="help"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon style="zoom:1.3;" slot="icon-only" name="notifications"></ion-icon>
+      </ion-button>      
+
+    </ion-buttons>
+    <ion-title>Conexão direta conosco</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content fullscreen class="ion-padding" scroll-y="false">
+
+  <!-- 
+    class="swiper-no-swiping" 
+    (ionSlideDidChange)="slideDidChange()"
+    (ionSlideDidChange)="slideDidChange($event)"    
+  -->
+  <form #form="ngForm" (ngSubmit)="saveData(form);" method="post" name="formFaleConosco">
+    <ion-slides #slides>
+
+      <ion-slide  class="swiper-no-swiping"  >
+        <div>
+          <img name='question' src="./../../../../assets/app/svg/FaleConosco.svg" />
+          <h2>Olá, tudo bem? <p><b>Sua comunicação é muito importante pra gente!</b></h2>
+          <b>Em seguida pediremos que selecione um assunto específico ou outro.</b>
+        </div>
+        <br>
+        <ion-button (click)="begin($event);" fill="clear">Seguir em frente<ion-icon slot="end" name="arrow-forward">
+          </ion-icon>
+        </ion-button>
+
+      </ion-slide>
+
+      <ion-slide  class="swiper-no-swiping" >
+        <ion-list>
+
+          <ion-list-header>
+            <h3>
+              Selecione o tipo de assunto, a unidade destinatária e deixe seu comentário
+            </h3>
+          </ion-list-header>
+
+
+
+          <ion-item>
+            <ion-label>Assunto</ion-label>
+            <ion-select cancelText="Desistir" okText="Confirmar" name="CodigoFaleConoscoAssunto"
+              required
+              [(ngModel)]="model.CodigoFaleConoscoAssunto">
+              <ion-select-option *ngFor="let fields of collectionAssunto"
+                value="{{fields.CodigoFaleConoscoAssunto}}">
+                {{fields.Subject}}
+              </ion-select-option>
+
+              <ion-select-option value="99">Outros</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+        </ion-list>
+
+
+        <ion-list>
+
+          <ion-list-header>
+            <ion-label>
+              Destinar à:
+            </ion-label>
+          </ion-list-header>
+
+
+
+          <ion-item>
+            <ion-label>Unidade (Regional)</ion-label>
+            <ion-select cancelText="Desistir" okText="Confirmar" name="CodigoUnidadeDestino"
+              required
+              [(ngModel)]="model.CodigoUnidadeDestino">
+              <ion-select-option *ngFor="let fields of collectionUnidades" value="{{fields.CodigoUnidade}}">
+                {{fields.NomeFantasia}}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+
+        </ion-list>
+
+
+        <!-- Comment Begin------------------------->
+        <ion-item position="floating" class="ion-text-left">
+          <ion-label>Seu comentário</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-textarea name="Comentario" #txtComentario id="txtComentario" class="ion-text-justify" minlength="20"
+            required
+            maxlength="255" rows="3" cols="20" placeholder="Deixe seu comentário de no mínimo 20 caracteres."
+            (ionChange)="ComentarioLength = getLengh();" [(ngModel)]="model.Comentario"
+            [ngModelOptions]="{standalone: false}">
+          </ion-textarea>
+        </ion-item>
+
+        <ion-item class="ion-text-right">
+          <ion-label>
+            {{ ComentarioLength }}/255
+          </ion-label>
+        </ion-item>
+        <!-- Comment End------------------------->
+        <ion-button fill="clear" expand="block" [disabled]="!form.valid " type="submit">
+          Enviar
+        </ion-button>
+
+      </ion-slide>
+
+
+      <ion-slide  class="swiper-no-swiping"  >
+
+
+        <div>
+          <img name='question' src="./../../../../assets/app/svg/FaleConosco.svg" />
+          <h3>Pronto! Agora é só aguardar. Fique de olho na sua caixa de e-mail</h3>
+           <p><b> ou se for necessário entraremos em contato por telefone.</b> </p> 
+           <h2>Muito obrigado por compartilhar!</h2>
+        </div>
+
+
+
+      </ion-slide>
+
+
+
+
+
+
+    </ion-slides>
+
+
+
+  </form>
+
+
+</ion-content>

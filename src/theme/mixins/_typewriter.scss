@@ -1,0 +1,21 @@
+
+
+@mixin typewriter {
+    & {
+        font-size: 1.2vw;
+        text-align: center;
+        font-weight: 600;
+        color: #4e4c4c;
+        overflow: hidden;
+        text-transform: lowercase;
+        white-space: nowrap; 
+        margin: 0 auto; 
+        animation: typing 3s steps(290,end);
+        z-index: 1;
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+    }
+}

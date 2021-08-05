@@ -1,0 +1,469 @@
+<ion-header *ngIf="!flagForm">
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
+
+    <ion-title>{{ title }}</ion-title>
+
+    <ion-buttons slot="end">
+
+      <ion-button (click)="mostrarPop( $event )">
+        <ion-icon name="more"></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content class="no-padding">
+  <ion-header *ngIf="flagForm && isPortrait()">
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-button (click)="FormClose()">
+          <ion-icon name="arrow-round-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+      <ion-buttons slot="primary">
+        <ion-button>
+          <ion-icon slot="icon-only" name="help"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+      <ion-title>{{ subtitle }}</ion-title>
+
+    </ion-toolbar>
+  </ion-header>
+
+
+  <!-- #################### Formulario ##################### -->
+  <div *ngIf="flagForm" class="ion-padding">
+
+    <form #form="ngForm" (ngSubmit)="salvar(form);" method="post" name="frm">
+      <ion-grid>
+
+        
+
+        <ion-row>
+          <ion-col size-sm="12" size-md="12" size-lg="12" size-xl="12" class="ion-align-self-center">
+            <ion-item lines="none" color="light">
+              <h5><strong>{{subtitlefrm}}</strong></h5>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+
+
+          <ion-col size-sm="12" size-xs="12" size-md="6" size-lg="6" size-xl="6" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Nome da Unidade</ion-label>
+              <ion-input type="text" [(ngModel)]="model.NomeSocial" name="NomeSocial" #txtNomeSocial required>
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size-sm="12" size-xs="12" size-md="6" size-lg="6" size-xl="6" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Code Nome</ion-label>
+              <ion-input type="text" [(ngModel)]="model.NomeFantasia" name="NomeFantasia" #txtNomeFantasia required>
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+
+        </ion-row>
+
+        <ion-row>
+
+
+
+          <ion-col size-sm="12" size-xs="12" size-md="3" size-lg="3" size-xl="3" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">CNPJ ou CPF</ion-label>
+              <ion-input type="text" min="11" maxlength="18" [(ngModel)]="model.CnpjCpf" name="CnpjCpf" #txtCnpjCpf
+                required (ionChange)="CnpjCpf = formatMask('CnpjCpf', model.CnpjCpf,'CPFCNPJ')"></ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size-sm="12" size-xs="12" size-md="3" size-lg="3" size-xl="3" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">IE/MF</ion-label>
+              <ion-input type="text" [(ngModel)]="model.IE" name="IE" #txtIE required>
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+
+          <ion-col size-sm="12" size-xs="12" size-md="3" size-lg="3" size-xl="3" class="ion-align-self-center">
+
+
+
+            <ion-item>
+              <ion-label position="floating">Situação </ion-label>
+              <ionic-selectable nome="UnidadeSituacao" confirmButtonText="Confirmar" closeButtonText="X"
+                searchplaceholder="Pesquisar" searchFailText="Nenhum registro encontrado."
+                [(ngModel)]="model.UnidadeSituacao" [ngModelOptions]="{standalone: true}"
+                [items]="collectionUnidadeSituacao" itemValueField="CodigoUnidadeSituacao" itemTextField="Nome"
+                [canSearch]="true" (onChange)="selectChange($event, 'CodigoUnidadeSituacao')">
+                >
+              </ionic-selectable>
+            </ion-item>
+
+
+          </ion-col>
+
+          <ion-col size-sm="12" size-xs="12" size-md="3" size-lg="3" size-xl="3" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Tipo </ion-label>
+              <ionic-selectable name="UnidadeTipo" confirmButtonText="Confirmar" closeButtonText="X"
+                searchplaceholder="Pesquisar" searchFailText="Nenhum registro encontrado." [(ngModel)]="model.UnidadeTipo"
+                [ngModelOptions]="{standalone: true}" [items]="collectionUnidadeTipo" itemValueField="CodigoUnidadeTipo"
+                itemTextField="Nome" [canSearch]="true" (onChange)="selectChange($event, 'CodigoUnidadeTipo')">
+                >
+              </ionic-selectable>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size-sm="12" size-xs="12" size-md="12" size-lg="12" size-xl="12" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Empresa</ion-label>
+              <ionic-selectable nome="Empresa" 
+                confirmButtonText="Confirmar" closeButtonText="X"
+                searchplaceholder="Pesquisar" 
+                searchFailText="Nenhum registro encontrado." 
+                [(ngModel)]="model.Empresa"
+                [ngModelOptions]="{standalone: true}" 
+                [items]="collectionEmpresa" 
+                itemValueField="CodigoEmpresa"
+                itemTextField="NomeSocial" [canSearch]="true" (onChange)="selectChange($event, 'CodigoEmpresa')">
+                >
+              </ionic-selectable>
+            </ion-item>
+  
+          </ion-col>
+  
+
+        </ion-row>
+
+        <ion-row>
+          <ion-col size-sm="12" size-md="12" size-lg="12" size-xl="12" class="ion-align-self-center">
+            <ion-item lines="none" color="light">
+              <h5><strong>Responsável</strong></h5>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+
+
+        <ion-row>
+          <ion-col size-sm="12" size-xs="12" size-md="6" size-lg="6" size-xl="6" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Responsável</ion-label>
+              <ion-input type="text" [(ngModel)]="model.NomeResponsavel" name="NomeResponsavel" #txtNomeResposanvel
+                required>
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size-sm="12" size-xs="12" size-md="6" size-lg="6" size-xl="6" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">CPF</ion-label>
+              <ion-input type="text" min="11" maxlength="15" [(ngModel)]="model.CpfRespEmpresa" name="CpfRespEmpresa"
+                #txtCpfRespEmpresa required
+                (ionChange)="CpfRespEmpresa = formatMask('CpfRespEmpresa', model.CpfRespEmpresa,'CPFCNPJ')"
+                required>
+              </ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size-sm="12" size-xs="12" size-md="3" size-lg="3" size-xl="3" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">RG</ion-label>
+              <ion-input type="text" [(ngModel)]="model.RgResponsavel" name="RgResponsavel" #txtRgResponsavel required>
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size-sm="12" size-xs="12" size-md="3" size-lg="3" size-xl="3" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Órgão Expedidor</ion-label>
+              <ion-input type="text" [(ngModel)]="model.RgRespOrgaoEmissor" name="RgRespOrgaoEmissor"
+                #txtRgRespOrgaoEmissor required>
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size-sm="12" size-xs="12" size-md="3" size-lg="3" size-xl="3" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">UF Órgão Expedidor </ion-label>
+              <ion-select nome="RgRespOrgaoUFCodigoBaseUF" value="{{model.RgRespOrgaoUFCodigoBaseUF}}"
+                cancelText="Desistir" doneText="Confirmar"
+                (ionChange)="changeSelect('RgRespOrgaoUFCodigoBaseUF',$event)">
+                <ion-select-option *ngFor="let option of collectionUfsRgRespOrgExp" value="{{option.CodigoBaseUF}}">
+                  {{option.Sigla}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size-sm="12" size-xs="12" size-md="3" size-lg="3" size-xl="3" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Data Expedição <em class="label-opcional"></em></ion-label>
+              <ion-datetime [(ngModel)]='model.RgRespDtEmissao' name="RgRespDtEmissao" display-format="DD/MMMM/YYYY"
+                cancelText="Desistir" doneText="Confirmar" placeholder=""
+                monthNames="Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro"
+                dayNames="Domingo, Segunda-Feira, Terça-Feira, Quanta-Feira, Quinta-Feira, Sábado" value="2019-10-04"
+                required>
+              </ion-datetime>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+
+        <ion-row>
+          <ion-col size-sm="12" size-md="12" size-lg="12" size-xl="12" class="ion-align-self-center">
+            <ion-item lines="none" color="light">
+              <h5><strong>Contatos</strong></h5>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+
+        <ion-row>
+          <ion-col size-sm="12" size-xs="12" size-md="3" size-lg="3" size-xl="3" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Telefone</ion-label>
+              <ion-input type="text" [(ngModel)]="model.Telefone" min="10" maxlength="15" name="Telefone" #txtTelefone
+                required (ionChange)="Telefone = formatMask('Telefone', model.Telefone,'TELEFONE')">
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size-sm="12" size-xs="12" size-md="3" size-lg="3" size-xl="3" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Celular</ion-label>
+              <ion-input type="text" [(ngModel)]="model.Celular" min="10" maxlength="15" name="Celular" #txtCelular
+                required (ionChange)="Celular = formatMask('Celular', model.Celular,'TELEFONE')"
+                >
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+
+          <ion-col size-sm="12" size-xs="12" size-md="6" size-lg="6" size-xl="6" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Email</ion-label>
+              <ion-input type="text" [(ngModel)]="model.Email" name="Email" #txtEmail required>
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+        </ion-row>
+
+        <ion-row>
+          <ion-col size-sm="12" size-xs="12" size-md="3" size-lg="3" size-xl="3" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">CEP</ion-label>
+              <ion-input type="text" [(ngModel)]="model.Cep" name="Cep" #txtCep required
+                (ionChange)="Cep = formatMask('Cep', model.Cep,'CEP')">
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size-sm="12" size-xs="12" size-md="7" size-lg="7" size-xl="7" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Endereco / Rua</ion-label>
+              <ion-input type="text" [(ngModel)]="model.EnderecoRua" name="EnderecoRua" #txtEnderecoRua required>
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size-sm="12" size-xs="12" size-md="2" size-lg="2" size-xl="2" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Nº</ion-label>
+              <ion-input type="text" [(ngModel)]="model.EnderecoNumero" name="EnderecoNumero" #txtEnderecoNumero
+                required>
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+        </ion-row>
+
+
+        <ion-row>
+
+          <ion-col size-sm="12" size-xs="12" size-md="3" size-lg="3" size-xl="3" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Bairro</ion-label>
+              <ion-input type="text" [(ngModel)]="model.Bairro" name="Bairro" #txtBairro required>
+              </ion-input>
+            </ion-item>
+          </ion-col>
+          
+          <ion-col size-sm="12" size-xs="12" size-md="3" size-lg="3" size-xl="3" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Cidade</ion-label>
+              <ion-input type="text" [(ngModel)]="model.Cidade" name="Cidade" #txtCidade required>
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size-sm="12" size-xs="12" size-md="2" size-lg="2" size-xl="2" class="ion-align-self-center">
+
+            <ion-item>
+              <ion-label position="floating">UF</ion-label>
+              <ion-select [compareWith]="compareWith" value="{{model.CodigoBaseUF}}" cancelText="Desistir"
+                doneText="Confirmar" (ionChange)="readSelectMunicipio($event.target.value)">
+                <ion-select-option *ngFor="let option of collectionUfs" value="{{option.CodigoBaseUF}}"
+                required>
+                  {{option.Sigla}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+          </ion-col>
+
+          <ion-col size-sm="12" size-xs="12" size-md="4" size-lg="4" size-xl="4" class="ion-align-self-center">
+
+            <ion-item>
+              <ion-label position="floating">Município </ion-label>
+              <ionic-selectable nome="Municipios" confirmButtonText="Confirmar" closeButtonText="X"
+                searchplaceholder="Pesquisar" searchFailText="Nenhum registro encontrado." [(ngModel)]="model.Municipios"
+                [ngModelOptions]="{standalone: true}" [items]="collectionMunicipios"
+                itemValueField="CodigoBaseMunicipio" itemTextField="Nome" [canSearch]="true"
+                (onChange)="selectChange($event, 'CodigoBaseMunicipio' )" required>
+              </ionic-selectable>
+            </ion-item>
+
+          </ion-col>
+
+        </ion-row>
+        <ion-row>
+          <ion-col size-sm="12" size-xs="12" size-md="12" size-lg="12" size-xl="12" class="ion-align-self-center">
+            <ion-button type="submit" [disabled]="!form.valid" expand="block" color="secondary">
+              Salvar
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+
+  <!-- #################### Listagem da informação ##################### -->
+  <div *ngIf="flagForm == false" class="ion-padding">
+
+
+    <!-- #################### Filtro Basico ##################### -->
+    <div id="divFiltro" *ngIf="permissoes.Pesquisar">
+      <ion-searchbar nome="search" #txtSearch placeholder="Pesquisar" (ionInput)="getItems($event)">
+      </ion-searchbar>
+    </div>
+
+    <ion-list *ngFor="let item of collectionFilter">
+
+
+      <ion-grid>
+        <ion-row class="no-padding">
+
+        <!--   <ion-col class="no-padding ion-align-self-center" size-sm="12" size-xs="12" size-md="4" size-lg="4"
+            size-xl="4">
+            <div class="ion-text-center">
+              <img class="logo" src="{{ item.VwThumbnail }}" width="50%" height="50%">
+            </div>
+          </ion-col> -->
+
+          <ion-col size-sm="12" size-xs="12" size-md="12" size-lg="12" size-xl="12" class="ion-align-self-center">
+            <ion-item>
+              <ion-label class="ion-text-wrap">
+                <h1>{{ item.NomeSocial }} </h1>
+                <h2>Nome Fantasia: {{ item.NomeFantasia }}</h2>
+                <h3>Responsável: {{ item.NomeResponsavel }}</h3>
+                <h3>Telefone: {{ item.Telefone }}</h3>
+                <h3>Celular: {{ item.Celular }}</h3>
+                <h3>Email: {{item.Email }}</h3>
+              </ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Opções:</ion-label>
+              <ion-buttons slot="end">
+                <ion-button (click)="edit(item)" [disabled]="permissoes.Editar == 0" slot="end" fill="clear"
+                  shape="round">
+                  <ion-icon name="create" color="secondary"></ion-icon>
+                </ion-button>
+                <ion-button (click)="delete(item)" [disabled]="permissoes.Deletar == 0" slot="end" fill="clear"
+                  shape="round">
+                  <ion-icon name="trash" color="secondary"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+            </ion-item>
+
+          </ion-col>
+
+
+
+        </ion-row>
+
+      </ion-grid>
+
+
+      <!--   <ion-grid>
+        <ion-row>
+          <ion-col size-sm="12" size-xs="12" size-md="12" size-lg="12" size-xl="12" class="ion-align-self-center">
+
+            <ion-item>
+              <ion-label>
+                <h2><strong>{{ item.CnpjCpfMask }}</strong></h2>
+              </ion-label>
+              <ion-buttons slot="end">
+                <ion-button (click)="edit(item)" [disabled]="permissoes.Editar == 0" slot="end" fill="clear"
+                  shape="round">
+                  <ion-icon name="create" color="secondary"></ion-icon>
+                </ion-button>
+                <ion-button (click)="delete(item)" [disabled]="permissoes.Deletar == 0" slot="end" fill="clear"
+                  shape="round">
+                  <ion-icon name="trash" color="secondary"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>
+                <h2>{{ item.NomeSocial }} </h2>
+                <h3>Nome Fantasia: {{ item.NomeFantasia }}</h3>
+                <h3>Responsável: {{ item.NomeResponsavel }}</h3>
+                <h3>Telefone: {{ item.Telefone }}</h3>
+                <h3>Celular: {{ item.Celular }}</h3>
+                <h3>Email: {{item.Email }}</h3>
+              </ion-label>
+            </ion-item>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-item *ngIf="collectionFilter?.length === 0">
+        <ion-label class="ion-text-center">
+          Nenhum informação para mostrar
+        </ion-label>
+      </ion-item>
+ -->
+    </ion-list>
+  </div>
+
+  <!-- #################### Botão Add ##################### -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="flagForm == false">
+    <ion-fab-button color="secondary" (click)="create()" [disabled]="permissoes.Inserir == 0">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

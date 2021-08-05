@@ -1,0 +1,260 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
+
+    <ion-title>{{ title }}</ion-title>
+
+    <ion-buttons slot="end">
+
+      <ion-button (click)="mostrarPop( $event )">
+        <ion-icon name="more"></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
+
+  </ion-toolbar>
+
+  <ion-row>
+    <ion-col size-sm="12" size-xs="12" size-md="12" size-lg="12" size-xl="12" class="ion-align-self-center">
+      <ion-item lines="none" color="secondary" class="ion-text-center">
+        <h5><strong>{{ subtitle }}</strong></h5>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+
+  <!-- #################### Filtro Avançado ##################### -->
+  <div id="divFiltroAvanzado" *ngIf="flagFiltroAvanzado">
+
+    <form #frmFiltroAvanzado="ngForm" (ngSubmit)="submitFiltrar(frmFiltroAvanzado)" method="POST"
+      name="frmFiltroAvanzado">
+      <ion-grid>
+        <ion-row>
+
+          <ion-col size-sm="12" size-xs="12" size-md="4" size-lg="4" size-xl="4" class="ion-align-self-center">
+
+            <ion-item>
+              <ion-label position="floating">Nome</ion-label>
+              <ion-input type="text" [(ngModel)]="modelPesquisa.Name" name="Name" placeholder="Digite o Nome"
+                #txtNomeMorador>
+              </ion-input>
+            </ion-item>
+
+          </ion-col>
+
+          <ion-col size-sm="12" size-xs="12" size-md="4" size-lg="4" size-xl="4" class="ion-align-self-center">
+
+            <ion-item>
+              <ion-label position="floating">Descrição</ion-label>
+              <ion-input type="text" [(ngModel)]="modelPesquisa.Details" name="Details" placeholder="Digite a Descrição"
+                #txtDetails>
+              </ion-input>
+            </ion-item>
+
+          </ion-col>
+
+
+
+          <ion-col size-sm="12" size-xs="12" size-md="4" size-lg="4" size-xl="4" class="ion-align-self-right">
+            <ion-button size="large" type="nome" expand="block" color="secondary" [disabled]="permissoes.Pesquisar == 0"
+              (click)='search()'>
+              Pesquisar
+            </ion-button>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+    </form>
+
+  </div>
+
+</ion-header>
+
+
+<ion-content>
+  <!-- #################### Formulario ##################### -->
+  <div *ngIf="flagForm" class="ion-padding">
+
+    <form #form="ngForm" (ngSubmit)="salvar(form);" method="post" name="frmSegmento">
+      <ion-grid>
+
+
+        <ion-row>
+
+          <ion-col size-sm="12" size-xs="12" size-md="4" size-lg="4" size-xl="4" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Nome</ion-label>
+              <ion-input type="text" [(ngModel)]="model.Name" name="Name" #txtName required>
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+
+          <ion-col size-sm="12" size-xs="12" size-md="4" size-lg="4" size-xl="4" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Descricao</ion-label>
+              <ion-input type="text" [(ngModel)]="model.Details" name="Details" #txtDetails required>
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size-sm="12" size-md="4" size-lg="4" size-xl="4" class="ion-align-self-center">
+            <ion-item>
+              <ion-toggle [(ngModel)]="model.MenuList" name="MenuList"></ion-toggle>
+              <ion-label>Menu Lista</ion-label>
+            </ion-item>
+          </ion-col>
+
+
+        </ion-row>
+
+        <ion-row>
+          <ion-col size-sm="12" size-xs="12" size-md="4" size-lg="4" size-xl="4" class="ion-align-self-center">
+
+            <ion-item>
+              <ion-label position="floating">Grupo Menu</ion-label>
+              <ion-select nome="CodigoMenuGrupo" value="{{model.CodigoMenuGrupo}}" cancelText="Desistir"
+                doneText="Confirmar" (ionChange)="changeSelect('CodigoMenuGrupo',$event)">
+                <ion-select-option *ngFor="let option of collectionMenuGrupos" value="{{option.CodigoMenuGrupo}}">
+                  {{option.Descricao}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+          </ion-col>
+
+          
+
+
+          <ion-col size-sm="12" size-xs="12" size-md="4" size-lg="4" size-xl="4" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Rota</ion-label>
+              <ion-input type="text" [(ngModel)]="model.Route" name="Route" #txtRoute required>
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size-sm="12" size-xs="12" size-md="4" size-lg="4" size-xl="4" class="ion-align-self-center">
+            <ion-item>
+              <ion-label position="floating">Icone</ion-label>
+              <ion-input type="text" [(ngModel)]="model.Icon" name="Icon" #txtIcon required>
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+
+
+        </ion-row>
+
+
+
+        <ion-row>
+          <ion-col size-sm="12" size-xs="12" size-md="12" size-lg="12" size-xl="12" class="ion-align-self-center">
+            <ion-button type="submit" [disabled]="!form.valid" expand="block" color="secondary">
+              Salvar
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+
+  <!-- #################### Listagem da informação ##################### -->
+  <div *ngIf="flagForm == false" class="ion-padding">
+
+
+    <!-- #################### Filtro Basico ##################### -->
+    <div id="divFiltro" *ngIf="permissoes.Pesquisar">
+      <ion-searchbar nome="search" #txtSearch *ngIf="flagFiltroAvanzado == false" placeholder="Pesquisar"
+        (ionInput)="getItems($event)">
+      </ion-searchbar>
+    </div>
+
+
+    <ion-list *ngFor="let item of collectionFilter">
+      <ion-list-header>
+        <h2>{{ item.Name }}</h2>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-avatar slot="start">
+          <ion-icon style="zoom:2.0;" color="secondary" src="{{ item.Icon }}" name="{{ item.Icon }}"></ion-icon>
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ item.MenuGrupo }}</h2>
+          <h3>{{ item.Route }}</h3>
+          <p>{{ item.Details }}</p>
+        </ion-label>
+
+        <ion-buttons>
+          <ion-button (click)="edit(item)" [disabled]="permissoes.Editar == 0" slot="end" fill="clear" shape="round">
+            <ion-icon name="create" color="secondary"></ion-icon>
+          </ion-button>
+          <ion-button (click)="delete(item)" [disabled]="permissoes.Deletar == 0" slot="end" fill="clear" shape="round">
+            <ion-icon name="trash" color="secondary"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+
+      </ion-item>
+
+    </ion-list>
+
+
+
+  </div>
+
+  <!-- #################### Botão Add ##################### -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="flagForm == false">
+    <ion-fab-button color="secondary" (click)="create()" [disabled]="permissoes.Inserir == 0">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
+
+
+
+<ion-footer class="ion-text-center" *ngIf="flagForm == false">
+  <div *ngIf='collectionFilter?.length > 0' class="center">
+    Total de Registro Filtrados: {{ collectionFilter.length  }}
+  </div>
+  <!--
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div *ngIf='collectionFilter?.length > 0' class="center">
+
+          Total de Registro Filtrados: {{ collectionFilter.length  }} <br>
+          <ion-button size="small" fill='outline' color='secondary' (click)='selecionaPagina(1000)'>
+            <ion-icon slot="icon-only" name="skip-backward"></ion-icon>
+          </ion-button>
+          <ion-button size="small" fill='outline' color='secondary' (click)='selecionaPagina(1001)'>
+            <ion-icon slot="icon-only" name="rewind"></ion-icon>
+          </ion-button>
+
+          <ion-button size="small" *ngFor="let pag of Paginas" (click)='selecionaPagina(pag.PageNumber)'
+            color='secondary' fill='outline'>
+            {{pag.PageNumber}}
+          </ion-button>
+
+          <ion-button size="small" fill='outline' color='secondary' (click)='selecionaPagina(1002)'>
+            <ion-icon slot="icon-only" name="fastforward"></ion-icon>
+          </ion-button>
+          <ion-button size="small" fill='outline' color='secondary' (click)='selecionaPagina(1003)'>
+            <ion-icon slot="icon-only" name="skip-forward"></ion-icon>
+          </ion-button>
+
+
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+-->
+
+</ion-footer>

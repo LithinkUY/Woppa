@@ -1,0 +1,23 @@
+export class Alunos {
+  CodigoAluno:number;
+  CodigoAlunoSituacao:number;	
+  DtCadastro:any;				
+  Nome:string;
+  NomeApelido:string;			
+  CpfAluno:string;				
+  RgResponsavelAluno:string;
+  RgResponsavelOrgaoEmissor:string;	
+  RgResponsavelDtEmissao:Date;		
+  CpfResponsavelAluno:string;		
+  NomeResponsavelAluno:string;		
+  Telefone:string;
+  Celular:string;
+  Email:string;					
+  EnderecoRua:string;			
+  EnderecoNumero:string;			
+  Bairro:string;					
+  Cidade:string;					
+  Cep:string;						
+  CodigoBaseUF:string;
+  CodigoBaseMunicipio:string;
+}
